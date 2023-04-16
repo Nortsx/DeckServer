@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Nortsx/deckserver/pkg/greeter/api"
-	"github.com/Nortsx/deckserver/pkg/greeter/grpcserver"
+	generated "github.com/Nortsx/deckserver/protos/generated/greeter"
+	"github.com/Nortsx/deckserver/src/greeter"
 	"github.com/spf13/viper"
 	"google.golang.org/grpc"
 	"log"
@@ -14,8 +14,8 @@ func main() {
 	port := setConfig()
 
 	server := grpc.NewServer()
-	grpcServer := &grpcserver.Server{}
-	api.RegisterGreeterServer(server, grpcServer)
+	grpcServer := &greeter.Server{}
+	generated.RegisterGreeterServer(server, grpcServer)
 
 	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {

@@ -1,4 +1,4 @@
 .PHONY: compile
 
 compile:
-	protoc -I api/proto --go_out=plugins=grpc:pkg  --validate_out="lang=go:pkg" ./api/proto/greeter.proto
+	protoc -I protos/greeter --go_out=plugins=grpc:protos --validate_out="lang=go:protos" protos/greeter/greeter.proto

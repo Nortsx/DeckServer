@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package greeting;
 
-import "validate/validate.proto";
+import "validate.proto";
 
-option go_package = "greeter/api";
+option go_package = "generated/greeter";
 
 service Greeter {
     rpc SayHello(HelloRequest) returns (HelloResponse);
